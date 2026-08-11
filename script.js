@@ -8,53 +8,32 @@ window.addEventListener("scroll", () => {
   if (progressBar) progressBar.style.height = `${scrollPercent}%`;
 });
 
-// Safety Fallback for Loading Screen
-setTimeout(() => {
-  const loadingElem = document.getElementById("loading");
-  if (loadingElem && loadingElem.style.display !== "none") {
-    loadingElem.style.opacity = "0";
-    setTimeout(() => { loadingElem.style.display = "none"; }, 500);
+// Loader Hiding Logic
+function hideLoadingScreen() {
+  const loader = document.getElementById("loading");
+  if (loader && loader.style.display !== "none") {
+    loader.style.opacity = "0";
+    setTimeout(() => { loader.style.display = "none"; }, 500);
   }
-}, 1200);
+}
 
-// Loading animation
-const letters = document.querySelectorAll(".loading-text span");
-if (typeof gsap !== "undefined" && letters.length > 0) {
+window.addEventListener("DOMContentLoaded", () => {
+  setTimeout(hideLoadingScreen, 800);
+});
+window.addEventListener("load", hideLoadingScreen);
+setTimeout(hideLoadingScreen, 1200);
 
-// Animate each letter with stagger
-gsap.to(letters, {
-  opacity: 1,
-  duration: 1.2,
-  stagger: 0.15,
-  onUpdate: function () {
-    letters.forEach((el, i) => {
-      gsap.to(el, {
-        color: "#ffffff",
-        duration: 0.2,
-        delay: i * 0.15,
-      });
-      gsap.to(el, {
-        color: "rgba(255,255,255,0.1)",
-        duration: 0.2,
-        delay: i * 0.15 + 0.4,
-      });
-      gsap.to(el.querySelector("::after"), {
-        opacity: 1,
-        duration: 0.2,
-        delay: i * 0.15,
-      });
+// Optional GSAP Letter Animation if GSAP is available
+document.addEventListener("DOMContentLoaded", () => {
+  const letters = document.querySelectorAll(".loading-text span");
+  if (typeof gsap !== "undefined" && letters.length > 0) {
+    gsap.to(letters, {
+      opacity: 1,
+      duration: 0.8,
+      stagger: 0.1,
+      onComplete: hideLoadingScreen
     });
-  },
-  onComplete: () => {
-    gsap.to("#loading", {
-      opacity: 0,
-      duration: 1,
-      delay: 0.5,
-      onComplete: () => {
-        document.getElementById("loading").style.display = "none";
-      },
-    });
-  },
+  }
 });
 
 
