@@ -8,33 +8,54 @@ window.addEventListener("scroll", () => {
   if (progressBar) progressBar.style.height = `${scrollPercent}%`;
 });
 
-// Loader Hiding Logic
-function hideLoadingScreen() {
+// Loading Animation Logic (DEO AUDHA Stagger Entrance)
+function initLoaderAnimation() {
   const loader = document.getElementById("loading");
-  if (loader && loader.style.display !== "none") {
-    loader.style.opacity = "0";
-    setTimeout(() => { loader.style.display = "none"; }, 500);
-  }
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  setTimeout(hideLoadingScreen, 800);
-});
-window.addEventListener("load", hideLoadingScreen);
-setTimeout(hideLoadingScreen, 1200);
-
-// Optional GSAP Letter Animation if GSAP is available
-document.addEventListener("DOMContentLoaded", () => {
   const letters = document.querySelectorAll(".loading-text span");
+
+  if (!loader) return;
+
+  function dismissLoader() {
+    if (loader.style.display !== "none") {
+      loader.style.transition = "opacity 0.6s ease-out";
+      loader.style.opacity = "0";
+      setTimeout(() => { loader.style.display = "none"; }, 600);
+    }
+  }
+
   if (typeof gsap !== "undefined" && letters.length > 0) {
     gsap.to(letters, {
       opacity: 1,
-      duration: 0.8,
-      stagger: 0.1,
-      onComplete: hideLoadingScreen
+      duration: 0.6,
+      stagger: 0.12,
+      onUpdate: function () {
+        letters.forEach((el, i) => {
+          gsap.to(el, {
+            color: "#1DCD9F",
+            duration: 0.2,
+            delay: i * 0.12,
+          });
+        });
+      },
+      onComplete: () => {
+        setTimeout(dismissLoader, 400);
+      }
     });
+  } else {
+    // Fallback if GSAP is unavailable
+    letters.forEach(el => { el.style.opacity = "1"; el.style.color = "#1DCD9F"; });
+    setTimeout(dismissLoader, 1000);
   }
-});
+
+  // Safety fallback after 2.5 seconds
+  setTimeout(dismissLoader, 2500);
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initLoaderAnimation);
+} else {
+  initLoaderAnimation();
+}
 
 
 // Animation for Hero Text
