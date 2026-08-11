@@ -5,11 +5,21 @@ window.addEventListener("scroll", () => {
   const scrollPercent = (scrollTop / docHeight) * 100;
 
   const progressBar = document.getElementById("scroll-indicator");
-  progressBar.style.height = `${scrollPercent}%`;
+  if (progressBar) progressBar.style.height = `${scrollPercent}%`;
 });
+
+// Safety Fallback for Loading Screen
+setTimeout(() => {
+  const loadingElem = document.getElementById("loading");
+  if (loadingElem && loadingElem.style.display !== "none") {
+    loadingElem.style.opacity = "0";
+    setTimeout(() => { loadingElem.style.display = "none"; }, 500);
+  }
+}, 1200);
 
 // Loading animation
 const letters = document.querySelectorAll(".loading-text span");
+if (typeof gsap !== "undefined" && letters.length > 0) {
 
 // Animate each letter with stagger
 gsap.to(letters, {
