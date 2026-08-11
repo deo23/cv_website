@@ -866,7 +866,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Preload critical images
   const criticalImages = [
-    './assets/logo.png',
+    './assets/profile.jpg',
     './assets/cursor.png'
   ];
 
