@@ -134,6 +134,8 @@
   text-transform: uppercase;
   color: transparent;
   -webkit-text-stroke: 1px var(--text-stroke-color);
+  white-space: nowrap;
+  display: inline-block;
 }
 
 /* Hover animation text */
@@ -147,6 +149,7 @@
   overflow: hidden;
   transition: 0.5s ease;
   -webkit-text-stroke: 1px var(--animation-color);
+  white-space: nowrap;
 }
 
 /* Trigger hover effect */
