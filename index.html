@@ -406,7 +406,108 @@
   <!-- PARTICLES BACKGROUND -->
   <div id="particles-projects" class="absolute top-0 left-0 w-full h-full z-0"></div>
 
-<!-- PROJECTS SECTION (REMOVED) -->
+  <!-- ACTUAL PROJECT CONTENT -->
+  <div class="relative z-10">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold mb-4">Projects</h2>
+      <p class="text-gray-300 text-lg">Some of the things I've built.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+
+      <!-- PROJECT CARD 1: PulseGrid IoT -->
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="w-full h-56 sm:h-64 overflow-hidden bg-gray-900 border-b border-gray-200 relative group">
+            <img src="./assets/pulse_grid.png" alt="PulseGrid IoT Telemetry &amp; Incident Engine Screenshot" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="bg-[#1DCD9F] text-black px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">LIVE PRODUCTION</span>
+              <span class="bg-gray-100 text-gray-800 px-3 py-1 text-xs rounded-full font-semibold">VERCEL DEPLOYED</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">PulseGrid IoT Telemetry Engine</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed text-sm">
+              Smart Building &amp; Environmental Spatial Telemetry Cockpit. Built with Next.js 14, Node.js/TypeScript, Socket.io WebSockets (&lt;100ms latency), Prisma ORM, and PostgreSQL. Features 2D SVG spatial floorplan &amp; 1-click emergency simulator.
+            </p>
+
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Next.js 14</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">TypeScript</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Socket.io</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Node.js</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">PostgreSQL</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Prisma</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Tailwind</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="p-6 pt-0 flex flex-wrap gap-3">
+          <a href="https://pulsegrid-iot.vercel.app/" target="_blank"
+            class="bg-[#1DCD9F] text-black font-bold px-4 py-2.5 rounded-lg hover:bg-[#17b890] transition-all text-xs flex items-center gap-1.5">
+            <span>Launch Live App</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://github.com/deo23/pulsegrid-iot" target="_blank"
+            class="bg-gray-900 text-white font-bold px-4 py-2.5 rounded-lg hover:bg-gray-800 transition-all text-xs flex items-center gap-1.5">
+            <i class="fab fa-github"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+      <!-- /PROJECT CARD 1 -->
+
+      <!-- PROJECT CARD 2: KasirIn POS & Inventory Cloud System -->
+      <div class="project-card bg-white text-black shadow-xl rounded-2xl overflow-hidden transform hover:scale-[1.02] transition-all duration-300 flex flex-col justify-between">
+        <div>
+          <div class="w-full h-56 sm:h-64 overflow-hidden bg-gray-900 border-b border-gray-200 relative group">
+            <img src="./assets/kasirin.png" alt="KasirIn Cloud POS &amp; Inventory Management System" class="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-500" />
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap items-center gap-2 mb-3">
+              <span class="bg-[#1DCD9F] text-black px-3 py-1 text-xs rounded-full font-bold uppercase tracking-wider">LIVE PRODUCTION</span>
+              <span class="bg-blue-600 text-white px-3 py-1 text-xs rounded-full font-semibold">C# .NET 8 BLAZOR</span>
+            </div>
+            <h3 class="text-2xl font-bold mb-2">KasirIn Cloud POS &amp; Inventory System</h3>
+            <p class="text-gray-700 mb-4 leading-relaxed text-sm">
+              Enterprise Point of Sale &amp; Inventory Management Suite. Built with C# .NET 8 Blazor Server, CQRS pattern, MediatR, FluentValidation, EF Core, and Google Stitch UI tokens. Features 95+ product catalog, live camera barcode scanning, thermal receipt printing, Excel export, and dual RBAC persona switcher.
+            </p>
+
+            <!-- Tech Stack Badges -->
+            <div class="flex flex-wrap gap-2 mb-6">
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">C# .NET 8</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Blazor Server</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">ASP.NET Core API</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">CQRS &amp; MediatR</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">EF Core</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Render &amp; Vercel</span>
+              <span class="bg-gray-100 px-2.5 py-1 text-xs font-semibold rounded">Tailwind CSS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Links -->
+        <div class="p-6 pt-0 flex flex-wrap gap-3">
+          <a href="https://kasirin.onrender.com/" target="_blank"
+            class="bg-[#1DCD9F] text-black font-bold px-4 py-2.5 rounded-lg hover:bg-[#17b890] transition-all text-xs flex items-center gap-1.5">
+            <span>Launch Live App</span>
+            <i class="fas fa-external-link-alt"></i>
+          </a>
+          <a href="https://github.com/deo23/kasirin" target="_blank"
+            class="bg-gray-900 text-white font-bold px-4 py-2.5 rounded-lg hover:bg-gray-800 transition-all text-xs flex items-center gap-1.5">
+            <i class="fab fa-github"></i>
+            <span>GitHub Repo</span>
+          </a>
+        </div>
+      </div>
+      <!-- /PROJECT CARD 2 -->
+
+    </div>
+  </div>
+</section>
 
 <!-- LEFTOVER PROJECT & UPCOMING CARDS (COMMENTED OUT)
 <section id="other-projects">
